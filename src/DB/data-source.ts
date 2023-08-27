@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { DataSource, DataSourceOptions } from "typeorm"
 import { config } from "dotenv";
+import { User } from './Entities/users.entity'
 config()
 
 const PORT = process.env.DB_PORT || 3306;
@@ -16,6 +17,7 @@ export const AppDataSource = new DataSource({
     username: DB_USERNAME,
     password: DB_PASSWORD,
     database: DB_NAME,
-    synchronize: true,
+    synchronize: false,
     logging: true,
+    entities: [User]
 })

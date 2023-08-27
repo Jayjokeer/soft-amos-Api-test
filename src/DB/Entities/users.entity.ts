@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
-export class Users {
+export class User {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
@@ -17,5 +17,8 @@ export class Users {
 
     @Column()
     password!: string;
+
+    @Column()
+    email!: string;
 
 }
