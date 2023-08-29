@@ -9,6 +9,8 @@ Express
 
 ## Documentation
 Postman Link: https://documenter.getpostman.com/view/26295633/2s9Y5ZvhY5
+## Base URL 
+https://soft-amos-ecommerce-api.onrender.com
 ## Setup
 
 Clone the repository:
@@ -98,11 +100,11 @@ Filter and Sort Customer Orders:
 Query parameter: q (optional, values: "ASC" or "DESC")
 Response: Array of sorted order objects
 
-Contributing
+## Contributing
 Contributions are welcome! If you find any issues or want to add enhancements, feel free to open a pull request.
 
-License
-This project is licensed under the MIT License.
+## License
+This project is licensed under the ISC License.
 
 
 
