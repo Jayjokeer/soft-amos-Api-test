@@ -7,7 +7,7 @@ MySQL database,
 Sequelizejs,
 Express
 
-## Docmentation
+## Documentation
 Postman Link: https://documenter.getpostman.com/view/26295633/2s9Y5ZvhY5
 ## Setup
 
