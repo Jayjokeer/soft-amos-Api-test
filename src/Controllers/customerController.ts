@@ -115,7 +115,8 @@ export const loginCustomer = async (
 
         return res.status(200).json({
             message: " Customer logged in successfully",
-            Token: token
+            Token: token,
+            Customer:existingCustomer
         })
     } catch (error) {
         return res.status(500).json({
@@ -124,24 +125,4 @@ export const loginCustomer = async (
         });
     }
 
-}
-
-//========================LOG OUT====================
-export const customerLogout = (
-    req: Request,
-    res: Response,
-)=>{
-    try {
-        res.clearCookie("token");
-        
-        res.status(200).json({
-          message: "User logout successful",
-        });
-      } catch (err) {
-        res.status(500).json({
-          Error: "Internal server error",
-          err,
-          route: "/user/logout",
-        });
-    }
 }
