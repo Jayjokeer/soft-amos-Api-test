@@ -1,28 +1,32 @@
-E-Commerce Store API
+# E-Commerce Store API
 This project provides a REST API for an e-commerce store, allowing customers to authenticate, create orders, retrieve their orders with pagination, and filter/sort orders based on price. It is built using TypeScript, Express, and SequelizeJS.
 
-Prerequisites
-Node.js (v14 or higher)
-MySQL database
-Setup
+## Prerequisites
+Node.js (v14 or higher),
+MySQL database,
+Sequelizejs,
+Express
+
+## Docmentation
+Postman Link: https://documenter.getpostman.com/view/26295633/2s9Y5ZvhY5
+## Setup
+
 Clone the repository:
+git clone  https://github.com/Jayjokeer/soft-amos-Api-test.git
 
-
-git clone https://github.com/Jayjokeer/soft-amos-Api-test.git
 cd soft-amos-api-test
 Install dependencies:
 
+* [x] npm install
+* [x] Create a .env file in the project root and provide the necessary environment variables:
 
-npm install
-Create a .env file in the project root and provide the necessary environment variables:
+* [x] Set up your MySQL database and configure the connection URL in the .env file.
 
-Set up your MySQL database and configure the connection URL in the .env file.
-
-Start the server:
+* [x] Start the server:
 npm start or npm run dev to run in development mode
 
-Authentication:
-Endpoint: POST /api/v1/auth/create-customer
+### Authentication:
+#### Endpoint: POST /api/v1/auth/create-customer
 Request body:
 json
 
@@ -43,7 +47,7 @@ json
   }
 }
 
-Endpoint: POST /api/v1/auth/login
+#### Endpoint: POST /api/v1/auth/login
 
 Request body:
 json
@@ -62,9 +66,8 @@ json
 }
 
 
-Create Order:
-
-Endpoint: POST /api/v1/orders/create-order
+### Create Order:
+#### Endpoint: POST /api/v1/orders/create-order
 Request body:
 json
 
@@ -84,14 +87,14 @@ Response:
         "createdAt": "2023-08-29T09:59:10.339Z"
     }
 
-Get Customer Orders:
+### Get Customer Orders:
 
-Endpoint: GET /api/v1/orders/get-order
+#### Endpoint: GET /api/v1/orders/get-order
 Query parameter: page (optional, default: 1)
 Response: Array of order objects
 Filter and Sort Customer Orders:
 
-Endpoint: GET /api/v1/orders/get-by-price
+#### Endpoint: GET /api/v1/orders/get-by-price
 Query parameter: q (optional, values: "ASC" or "DESC")
 Response: Array of sorted order objects
 
