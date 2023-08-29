@@ -16,7 +16,7 @@ const JWT_SECRET = process.env.JWT_SECRET as string;
 export const createCustomer = async (
     req: Request,
     res: Response,
-    next: NextFunction) => {
+    ) => {
     try {
         // validate req.body using JOI
         const { error } = customerSchema.validate(req.body);
@@ -75,7 +75,7 @@ export const createCustomer = async (
 export const loginCustomer = async (
     req: Request,
     res: Response,
-    next: NextFunction) => {
+    ) => {
     try {
         const {
             email,
@@ -124,4 +124,24 @@ export const loginCustomer = async (
         });
     }
 
+}
+
+//========================LOG OUT====================
+export const customerLogout = (
+    req: Request,
+    res: Response,
+)=>{
+    try {
+        res.clearCookie("token");
+        
+        res.status(200).json({
+          message: "User logout successful",
+        });
+      } catch (err) {
+        res.status(500).json({
+          Error: "Internal server error",
+          err,
+          route: "/user/logout",
+        });
+    }
 }
