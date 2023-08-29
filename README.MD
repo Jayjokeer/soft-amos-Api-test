@@ -8,89 +8,100 @@ Setup
 Clone the repository:
 
 
-git clone https://github.com//e-commerce-api.git
-cd soft-amos-test
+git clone https://github.com/Jayjokeer/soft-amos-Api-test.git
+cd soft-amos-api-test
 Install dependencies:
 
 
 npm install
 Create a .env file in the project root and provide the necessary environment variables:
 
+Set up your MySQL database and configure the connection URL in the .env file.
 
-DATABASE_URL=mysql://username:password@localhost:5432/ecommerce_db
-JWT_SECRET=your-secret-key
-Set up your PostgreSQL database and configure the connection URL in the .env file.
-
-Run the migrations to create the database tables:
-
-npm run sequelize db:migrate
-Usage
 Start the server:
-
-
 npm start or npm run dev to run in development mode
-Authentication:
 
-Endpoint: POST /auth
+Authentication:
+Endpoint: POST /api/v1/auth/create-customer
 Request body:
 json
 
 {
-  "email": "customer@example.com",
+  "firstName":"Your-firstname",
+  "lastName:"Your -lastname",
+  "email": "jayte@gmail.com",
+  "phone":"your phone number",
   "password": "password"
 }
+
 Response:
 json
-
 {
-  "token": "your-jwt-token"
+  "message":"Customer created successfully"
+  "registeredCustomer": {
+    customer-details
+  }
 }
-Create Order:
 
-Endpoint: POST /orders
+Endpoint: POST /api/v1/auth/login
+
 Request body:
 json
 
 {
-  "customerId": 1,
-  "products": [
-    {
-      "name": "Product 1",
-      "price": 100
-    }
-  ]
+  "email": "jayte@gmail.com",
+  "password": "password"
+}
+
+Response:
+json
+
+{
+  "message":"Customer logged in successfully"
+  "Token": "your-jwt-token"
+}
+
+
+Create Order:
+
+Endpoint: POST /api/v1/orders/create-order
+Request body:
+json
+
+{
+    "orderNumber":"6",
+    "totalAmount":30
 }
 Response:
 
-{
-  "id": 1,
-  "customerId": 1,
-  "products": [
-    {
-      "name": "Product 1",
-      "price": 100
+    "message": "Order created successfully",
+    "order": {
+        "id": "1cezt8KA9nCGwtNH63R6JS",
+        "customerId": "aJ26kqnxUw2DbMiie4yrfB",
+        "orderNumber": "6",
+        "totalAmount": 30,
+        "updatedAt": "2023-08-29T09:59:10.339Z",
+        "createdAt": "2023-08-29T09:59:10.339Z"
     }
-  ],
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp"
-}
+
 Get Customer Orders:
 
-Endpoint: GET /orders/:customerId
+Endpoint: GET /api/v1/orders/get-order
 Query parameter: page (optional, default: 1)
 Response: Array of order objects
 Filter and Sort Customer Orders:
 
-Endpoint: GET /orders/:customerId/sort
-Query parameter: sortBy (optional, values: "asc" or "desc")
+Endpoint: GET /api/v1/orders/get-by-price
+Query parameter: q (optional, values: "ASC" or "DESC")
 Response: Array of sorted order objects
+
 Contributing
 Contributions are welcome! If you find any issues or want to add enhancements, feel free to open a pull request.
 
 License
 This project is licensed under the MIT License.
 
-Replace placeholders like your-username and your-secret-key with appropriate values. This README file provides a quick overview of the project, how to set it up, and how to use the API endpoints. Customize it further to match your project's specifics.
+
 
 
 
